@@ -1,0 +1,27 @@
+.layout {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.layout_apptopbar {
+  background: var(--surface-card);
+  padding: 0.5rem;
+}
+
+.layout_apptopbar_content {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.layout_content {
+  background: var(--surface-card);
+  height: 90vh;
+  border-radius: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
