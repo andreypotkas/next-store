@@ -1,0 +1,27 @@
+.layout {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.layout_content {
+  background: var(--surface-card);
+  height: 90vh;
+  border-radius: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .layout_content {
+    margin: 0 0.5rem;
+    width: auto;
+  }
+}
+
+@media (max-width: 776px) {
+  .layout_content {
+    height: 88vh;
+  }
+}

@@ -51,12 +51,13 @@ export const LayoutProvider = ({ children }: ChildContainerProps) => {
   };
 
   const isDesktop = () => {
-    return window.innerWidth > 991;
+    return window.innerWidth > 776;
   };
 
   const value: LayoutContextProps = {
     layoutState,
     layoutConfig,
+    isDesktop,
     changeAppTheme,
     setLayoutConfig,
     setLayoutState,

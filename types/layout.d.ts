@@ -25,6 +25,7 @@ export type LayoutConfig = {
 };
 
 export interface LayoutContextProps {
+  isDesktop: () => void;
   changeAppTheme: (theme: Themes, colorScheme: ColorSchemes) => void;
   layoutConfig: LayoutConfig;
   setLayoutConfig: Dispatch<SetStateAction<LayoutConfig>>;

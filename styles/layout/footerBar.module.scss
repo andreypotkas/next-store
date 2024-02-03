@@ -1,0 +1,13 @@
+.footer {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 776px) {
+  .footer {
+    display: block;
+  }
+}

@@ -7,3 +7,13 @@
     width: 18rem;
   }
 }
+
+@media (max-width: 776px) {
+  .container {
+    flex-shrink: 1;
+
+    input {
+      width: auto;
+    }
+  }
+}
