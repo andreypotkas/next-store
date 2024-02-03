@@ -3,6 +3,7 @@ import Layout from "@/layout/layout";
 import "@/styles/globals.scss";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import "primeicons/primeicons.css";
 import "primereact/resources/primereact.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });

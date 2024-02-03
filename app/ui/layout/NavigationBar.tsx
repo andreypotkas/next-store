@@ -1,25 +1,41 @@
 "use client";
+import styles from "@/styles/layout.module.scss";
+import { NavigationBarItemType } from "@/types/items";
 import { Bell, Home, MessageSquareMore, Users } from "lucide-react";
+import { useState } from "react";
+import NavigationBarItem from "./NavigationBarItem";
 
-const navigationItems = [
+const navigationBarItems: NavigationBarItemType[] = [
   {
-    title: "Home",
-    icon: <Home />,
+    label: "Home",
+    icon: <Home width={24} height={24} />,
+    link: "/",
   },
   {
-    title: "Social",
-    icon: <Users />,
+    label: "Social",
+    icon: <Users width={24} height={24} />,
+    link: "/?page=social",
   },
   {
-    title: "Messages",
-    icon: <MessageSquareMore />,
+    label: "Messages",
+    icon: <MessageSquareMore width={24} height={24} />,
+    link: "/?page=messages",
   },
   {
-    title: "Notifications",
-    icon: <Bell />,
+    label: "Notifications",
+    icon: <Bell width={24} height={24} />,
+    link: "/?page=link",
   },
 ];
 
 export default function NavigationBar() {
-  return <div></div>;
+  const [active, setActive] = useState(0);
+
+  return (
+    <div className={styles.layout_navigation_bar}>
+      {navigationBarItems.map((item, index) => {
+        return <NavigationBarItem key={Math.random()} isActive={index === active} item={item} handler={setActive} index={index} />;
+      })}
+    </div>
+  );
 }

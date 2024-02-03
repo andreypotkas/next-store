@@ -4,19 +4,6 @@
   flex-direction: column;
 }
 
-.layout_apptopbar {
-  background: var(--surface-card);
-  padding: 0.5rem;
-}
-
-.layout_apptopbar_content {
-  display: flex;
-  max-width: 1440px;
-  margin: 0 auto;
-  gap: 1rem;
-  align-items: center;
-}
-
 .layout_content {
   background: var(--surface-card);
   height: 90vh;
@@ -24,4 +11,88 @@
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
+}
+
+.layout_apptopbar {
+  background: var(--surface-card);
+  padding: 0.5rem;
+}
+
+.layout_apptopbar_content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.layout_apptopbar_content_left {
+  display: flex;
+  gap: 1rem;
+}
+.layout_apptopbar_content_right {
+  display: flex;
+  gap: 1rem;
+}
+
+.layout_navigation_bar {
+  display: flex;
+  gap: 1rem;
+  color: black;
+}
+
+.layout_navigation_bar_item {
+  color: var(--text-color-secondary);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 4rem;
+  justify-content: space-between;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+    transition: width 0.3s;
+  }
+}
+
+.layout_navigation_bar_active_item {
+  background: var(--surface-ground);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+    width: 100%;
+  }
+}
+
+.layout_profile_item_image_container {
+  height: 28.5px;
+}
+
+.layout_profile_item_text_container {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+
+  i {
+    font-size: 0.75rem;
+  }
 }
