@@ -1,4 +1,4 @@
-import appTopBarStyles from "@/styles/layout/appTopBar.module.scss";
+import appTopBarStyles from "@/styles/main/layout/appTopBar.module.scss";
 import { NavigationBarItemType } from "@/types/items";
 import clsx from "clsx";
 import Link from "next/link";

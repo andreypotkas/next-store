@@ -1,0 +1,14 @@
+@import "@/styles/mixins.scss";
+
+.layout {
+  @include flex_dir_align_justify_gap(column, start, start, 0.5rem);
+  padding-top: 80px;
+}
+
+.layout_content {
+  @include width-wrapper;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 8fr 2.5fr;
+  min-height: 88vh;
+}

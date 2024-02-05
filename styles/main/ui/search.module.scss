@@ -10,10 +10,11 @@
 
 @media (max-width: 776px) {
   .container {
-    flex-shrink: 1;
+    width: 100%;
+    flex-grow: 1;
 
     input {
-      width: auto;
+      width: 100%;
     }
   }
 }

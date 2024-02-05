@@ -1,0 +1,53 @@
+@mixin flex_dir_align_justify_gap($dir: row, $align: start, $justify: start, $gap: 0) {
+  display: flex;
+  flex-direction: $dir; // row, column, row-reverse, column-reverse
+  align-items: $align; // stretch, center, start, end
+  justify-content: $justify; // start, center, space-between, space-around, space-evently
+  gap: $gap;
+}
+
+@mixin card {
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  background: var(--surface-card);
+  padding: 0.5rem;
+}
+
+@mixin underlined-animation {
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+    transition: width 0.3s;
+  }
+}
+
+@mixin width-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @media (max-width: 1280px) {
+    padding: 0 0.5rem;
+  }
+}
+
+@mixin fixed_bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@mixin fixed_top {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}

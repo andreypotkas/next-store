@@ -1,7 +1,9 @@
 "use client";
-import appTopBarStyles from "@/styles/layout/appTopBar.module.scss";
+import appTopBarStyles from "@/styles/main/layout/appTopBar.module.scss";
+
 import { NavigationBarItemType } from "@/types/items";
-import { Bell, Home, MessageSquareMore, Users } from "lucide-react";
+import { Bell, Home, Newspaper, Users } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import NavigationBarItem from "./NavigationBarItem";
 
@@ -9,7 +11,7 @@ const navigationBarItems: NavigationBarItemType[] = [
   {
     label: "Home",
     icon: <Home width={24} height={24} />,
-    link: "/",
+    link: "/home",
   },
   {
     label: "Social",
@@ -17,14 +19,23 @@ const navigationBarItems: NavigationBarItemType[] = [
     link: "/?page=social",
   },
   {
-    label: "Messages",
-    icon: <MessageSquareMore width={24} height={24} />,
-    link: "/?page=messages",
-  },
-  {
     label: "Notifications",
     icon: <Bell width={24} height={24} />,
     link: "/?page=link",
+  },
+  {
+    label: "Blog",
+    icon: <Newspaper width={24} height={24} />,
+    link: "/?page=link",
+  },
+  {
+    label: "Profile",
+    icon: (
+      <div className={appTopBarStyles.profile_item_image_container}>
+        <Image className="rounded" width={24} height={24} src={"/default-user-logo.svg"} alt="user-logotip" />
+      </div>
+    ),
+    link: "/?page=messages",
   },
 ];
 

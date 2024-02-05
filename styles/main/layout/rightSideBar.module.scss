@@ -1,0 +1,43 @@
+@import "@/styles/mixins.scss";
+
+.right_side_bar {
+  @include flex_dir_align_justify_gap(column, center, start, 1rem);
+  @include card;
+  align-self: start;
+  font-size: 0.75rem;
+
+  &_content {
+    @include flex_dir_align_justify_gap(column, center, start, 1rem);
+
+    &_item {
+      @include flex_dir_align_justify_gap($gap: 1rem);
+      @include card;
+      background: var(--surface-hover);
+      border: none;
+
+      &_content {
+        @include flex_dir_align_justify_gap(column, start, start, 0.25rem);
+
+        &_title {
+          font-weight: bold;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+
+  &_link {
+    @include flex_dir_align_justify_gap(row, center, start, 0.5rem);
+    font-size: 0.85rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+
+    &:hover {
+      background: var(--surface-hover);
+    }
+  }
+
+  &_footer {
+    @include flex_dir_align_justify_gap(row, center, start, 1rem);
+  }
+}
