@@ -9,30 +9,18 @@ export default function RightSideBar() {
   return (
     <div className={rightSideBarStyles.right_side_bar}>
       <div className={rightSideBarStyles.right_side_bar_content}>
-        <div className={rightSideBarStyles.right_side_bar_content_item}>
-          <Image src={"/default-user-logo.svg"} width={48} height={48} alt="test alt" />
-          <div className={rightSideBarStyles.right_side_bar_content_item_content}>
-            <span className={rightSideBarStyles.right_side_bar_content_item_content_title}>Title example</span>
-            <span>Description short text about group</span>
-            <Button size="small" label={"Subscribe"} rounded outlined></Button>
-          </div>
-        </div>
-        <div className={rightSideBarStyles.right_side_bar_content_item}>
-          <Image src={"/default-user-logo.svg"} width={48} height={48} alt="test alt" />
-          <div className={rightSideBarStyles.right_side_bar_content_item_content}>
-            <span className={rightSideBarStyles.right_side_bar_content_item_content_title}>Title example</span>
-            <span>Description short text about group</span>
-            <Button size="small" label={"Subscribe"} rounded outlined></Button>
-          </div>
-        </div>
-        <div className={rightSideBarStyles.right_side_bar_content_item}>
-          <Image src={"/default-user-logo.svg"} width={48} height={48} alt="test alt" />
-          <div className={rightSideBarStyles.right_side_bar_content_item_content}>
-            <span className={rightSideBarStyles.right_side_bar_content_item_content_title}>Title example</span>
-            <span>Description short text about group</span>
-            <Button size="small" label={"Subscribe"} rounded outlined></Button>
-          </div>
-        </div>
+        {[1, 2, 3].map((item) => {
+          return (
+            <div key={Math.random()} className={rightSideBarStyles.right_side_bar_content_item}>
+              <Image src={"/default-user-logo.svg"} width={48} height={48} alt="test alt" />
+              <div className={rightSideBarStyles.right_side_bar_content_item_content}>
+                <span className={rightSideBarStyles.right_side_bar_content_item_content_title}>Title example</span>
+                <span className={rightSideBarStyles.right_side_bar_content_item_content_descrription}>Description short text about group</span>
+                <Button size="small" label={"Subscribe"} rounded outlined></Button>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <Link href="/" className={rightSideBarStyles.right_side_bar_link}>
         <span>See other recommendations </span>

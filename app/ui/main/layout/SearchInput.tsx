@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/styles/main/ui/search.module.scss";
+import styles from "@/styles/main/layout/search.module.scss";
 import clsx from "clsx";
 import { InputText } from "primereact/inputtext";
 

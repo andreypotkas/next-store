@@ -1,5 +1,5 @@
-import Post from "@/app/ui/Post";
-import LeftSideBar from "@/app/ui/main/home/LeftSideBar";
+import LeftSideBar from "@/app/ui/main/LeftSideBar";
+import Post from "@/app/ui/main/home/Post";
 import homeStyles from "@/styles/main/home/home.module.scss";
 
 export default function Home() {

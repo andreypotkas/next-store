@@ -1,8 +1,6 @@
-@import "@/styles/mixins.scss";
-
 .apptopbar {
-  @include flex_dir_align_justify_gap(row, center, start, 0rem);
-  @include fixed_top;
+  @include flex_dir_align_justify_gap(row, center, flex-start, 0rem);
+  @extend %fixed_top;
   background: var(--surface-card);
   border-bottom: 1px solid var(--surface-border);
   padding: 0.5rem;
@@ -10,7 +8,7 @@
 }
 
 .apptopbar_content {
-  @include width-wrapper;
+  @extend %width-wrapper;
   @include flex_dir_align_justify_gap(row, center, space-between, 0rem);
   width: 100%;
 }
@@ -24,7 +22,7 @@
   @include flex_dir_align_justify_gap($gap: 1rem);
 
   &_nav_mobile {
-    @include fixed_bottom;
+    @extend %fixed_bottom;
     display: none;
   }
 }
@@ -35,22 +33,19 @@
 
 .navigation_bar_item {
   @include flex_dir_align_justify_gap(column, center, space-between, 0rem);
-  color: var(--text-color-secondary);
-  font-size: 0.65rem;
+  @extend %underlined-animation;
+  @extend %nav_item;
   width: 5rem;
   padding: 0.25rem;
 
   &:hover {
     cursor: pointer;
   }
-
-  @include underlined-animation;
 }
 
 .navigation_bar_active_item {
+  @extend %underlined-animation;
   background: var(--surface-ground);
-
-  @include underlined-animation;
 
   &::after {
     width: 100%;

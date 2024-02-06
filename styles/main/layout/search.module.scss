@@ -1,0 +1,14 @@
+@import "@/styles/mixins.scss";
+
+.container {
+  @include flex_dir_align_justify_gap($align: center, $gap: 1rem);
+  width: 100%;
+
+  input {
+    transition: all 1s;
+    width: 250px;
+    &:focus {
+      width: 100%;
+    }
+  }
+}
