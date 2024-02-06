@@ -7,7 +7,7 @@ import { InputText } from "primereact/inputtext";
 export default function SearchInput() {
   return (
     <span className={clsx(styles.container)}>
-      <InputText id="search-input" placeholder="Search" />
+      <InputText id="search-input" placeholder="Поиск.." />
     </span>
   );
 }

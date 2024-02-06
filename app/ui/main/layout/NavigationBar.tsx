@@ -9,27 +9,27 @@ import NavigationBarItem from "./NavigationBarItem";
 
 const navigationBarItems: NavigationBarItemType[] = [
   {
-    label: "Home",
+    label: "Главная",
     icon: <Home width={24} height={24} />,
     link: "/home",
   },
   {
-    label: "Social",
+    label: "Сеть",
     icon: <Users width={24} height={24} />,
     link: "/?page=social",
   },
   {
-    label: "Notifications",
+    label: "Уведомления",
     icon: <Bell width={24} height={24} />,
     link: "/?page=link",
   },
   {
-    label: "Blog",
+    label: "Блог",
     icon: <Newspaper width={24} height={24} />,
     link: "/?page=link",
   },
   {
-    label: "Profile",
+    label: "Профиль",
     icon: (
       <div className={appTopBarStyles.profile_item_image_container}>
         <Image className="rounded" width={24} height={24} src={"/default-user-logo.svg"} alt="user-logotip" />

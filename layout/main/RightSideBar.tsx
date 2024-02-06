@@ -16,14 +16,14 @@ export default function RightSideBar() {
               <div className={rightSideBarStyles.right_side_bar_content_item_content}>
                 <span className={rightSideBarStyles.right_side_bar_content_item_content_title}>Title example</span>
                 <span className={rightSideBarStyles.right_side_bar_content_item_content_descrription}>Description short text about group</span>
-                <Button size="small" label={"Subscribe"} rounded outlined></Button>
+                <Button size="small" icon="pi pi-plus-circle" label={"Подписаться"} rounded outlined></Button>
               </div>
             </div>
           );
         })}
       </div>
       <Link href="/" className={rightSideBarStyles.right_side_bar_link}>
-        <span>See other recommendations </span>
+        <span>См. все рекомендации</span>
         <ArrowRightCircle />
       </Link>
       <div className={rightSideBarStyles.right_side_bar_footer}>

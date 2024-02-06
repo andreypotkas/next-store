@@ -22,3 +22,9 @@ a {
 .rounded {
   border-radius: var(--border-radius);
 }
+
+@media (max-width: 776px) {
+  html {
+    font-size: 12px;
+  }
+}
