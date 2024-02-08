@@ -1,4 +1,3 @@
-import appTopBarStyles from "@/styles/main/layout/appTopBar.module.scss";
 import { NavigationBarItemType } from "@/types/items";
 import clsx from "clsx";
 import Link from "next/link";
@@ -12,9 +11,11 @@ export default function NavigationBarItem({ item, isActive, index, handler }: Pr
   };
 
   return (
-    <Link className={clsx(appTopBarStyles.navigation_bar_item, isActive ? appTopBarStyles.navigation_bar_active_item : "")} href={item.link} onClick={handleClick}>
-      <span> {item.icon}</span>
-      <span>{item.label}</span>
-    </Link>
+    <div>
+      <Link className={clsx("navigation_bar_item", isActive ? "navigation_bar_active_item" : "")} href={item.link} onClick={handleClick}>
+        <span> {item.icon}</span>
+        <span>{item.label}</span>
+      </Link>
+    </div>
   );
 }

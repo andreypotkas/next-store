@@ -1,18 +1,15 @@
 "use client";
-import { ChildContainerProps, ColorSchemes, LayoutConfig, LayoutContextProps, LayoutState, Themes } from "@/types/layout";
+import { ChildContainerProps, LayoutConfig, LayoutContextProps, LayoutState } from "@/types/layout";
 import { PrimeReactContext } from "primereact/api";
 import { createContext, useContext, useState } from "react";
-
 export const LayoutContext = createContext({} as LayoutContextProps);
 
 export const LayoutProvider = ({ children }: ChildContainerProps) => {
-  const { changeTheme } = useContext(PrimeReactContext);
-
   const [layoutConfig, setLayoutConfig] = useState<LayoutConfig>({
     ripple: true,
     menuMode: "static",
-    colorScheme: "dark",
-    theme: "lara-dark-teal",
+    colorScheme: "light",
+    theme: "lara-light-teal",
   });
 
   const [layoutState, setLayoutState] = useState<LayoutState>({
@@ -23,8 +20,9 @@ export const LayoutProvider = ({ children }: ChildContainerProps) => {
     staticMenuMobileActive: false,
     menuHoverActive: false,
   });
+  const { changeTheme } = useContext(PrimeReactContext);
 
-  const changeAppTheme = (theme: Themes, colorScheme: ColorSchemes) => {
+  const changeAppTheme = (theme: string, colorScheme: string) => {
     changeTheme?.(layoutConfig.theme, theme, "theme-css", () => {
       setLayoutConfig((prevState: LayoutConfig) => ({ ...prevState, theme, colorScheme }));
     });
@@ -51,15 +49,14 @@ export const LayoutProvider = ({ children }: ChildContainerProps) => {
   };
 
   const isDesktop = () => {
-    return window.innerWidth > 776;
+    return window.innerWidth > 991;
   };
 
   const value: LayoutContextProps = {
-    layoutState,
     layoutConfig,
-    isDesktop,
-    changeAppTheme,
     setLayoutConfig,
+    changeAppTheme,
+    layoutState,
     setLayoutState,
     onMenuToggle,
     showProfileSidebar,

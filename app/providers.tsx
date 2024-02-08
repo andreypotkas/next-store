@@ -1,5 +1,6 @@
 "use client";
 
+import { LayoutProvider } from "@/context/layoutcontext";
 import { PrimeReactProvider } from "primereact/api";
 
 interface RootLayoutProps {
@@ -7,5 +8,9 @@ interface RootLayoutProps {
 }
 
 export function PrimeReactProviders({ children }: RootLayoutProps) {
-  return <PrimeReactProvider>{children}</PrimeReactProvider>;
+  return (
+    <PrimeReactProvider>
+      <LayoutProvider>{children}</LayoutProvider>
+    </PrimeReactProvider>
+  );
 }

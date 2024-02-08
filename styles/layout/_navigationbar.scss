@@ -1,0 +1,54 @@
+.navigation_bar {
+  display: flex;
+}
+
+.navigation_bar_item {
+  @include flex_dir_align_justify_gap(column, center, space-between, 0rem);
+  @extend %underlined-animation;
+  @extend %description_3;
+  width: 5rem;
+  padding: 0.25rem;
+
+  &:hover {
+    cursor: pointer;
+    background: var(--surface-hover);
+  }
+}
+
+.navigation_bar_active_item {
+  @extend %underlined-animation;
+  background: var(--surface-hover);
+
+  &::after {
+    width: 100%;
+  }
+}
+
+.profile_item_image_container {
+  height: 28.5px;
+}
+
+@media (max-width: 1280px) {
+  .navigationbar_content {
+    margin: 0;
+  }
+}
+
+@media (max-width: 776px) {
+  .navigationbar_content_right_nav {
+    display: none;
+  }
+
+  .navigationbar_content_right_nav_mobile {
+    display: block;
+  }
+
+  .navigation_bar_item {
+    width: 20%;
+  }
+
+  .navigation_bar {
+    background: var(--surface-card);
+    border-top: 1px solid var(--surface-border);
+  }
+}
