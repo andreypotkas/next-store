@@ -7,8 +7,8 @@ import { useEventListener, useUnmountEffect } from "primereact/hooks";
 import { classNames } from "primereact/utils";
 import React, { useContext, useEffect, useRef } from "react";
 import { LayoutContext } from "../context/layoutcontext";
-import AppSidebar from "./AppLeftSidebar";
 import AppTopbar from "./AppTopbar";
+import AppSidebar from "./LeftSideBar";
 
 const Layout = ({ children }: ChildContainerProps) => {
   const { layoutConfig, layoutState, setLayoutState } = useContext(LayoutContext);

@@ -5,7 +5,7 @@
 .navigation_bar_item {
   @include flex_dir_align_justify_gap(column, center, space-between, 0rem);
   @extend %underlined-animation;
-  @extend %description_3;
+  @extend %secondary_text_3;
   width: 5rem;
   padding: 0.25rem;
 

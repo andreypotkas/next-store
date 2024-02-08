@@ -1,4 +1,5 @@
-import React, { Dispatch, HTMLAttributeAnchorTarget, ReactNode, SetStateAction } from "react";
+import { MenuItem } from "primereact/menuitem";
+import React, { Dispatch, ReactNode, SetStateAction } from "react";
 
 /* Breadcrumb Types */
 export interface AppBreadcrumbProps {
@@ -75,26 +76,8 @@ export interface MenuProps {
   model: MenuModel[];
 }
 
-export interface MenuModel {
-  label: string;
-  icon?: string | React.ReactNode;
-  items?: MenuModel[];
-  to?: string;
-  url?: string;
-  target?: HTMLAttributeAnchorTarget;
-  seperator?: boolean;
-}
-
-export interface AppMenuItem extends MenuModel {
-  items?: AppMenuItem[];
-  badge?: "UPDATED" | "NEW";
-  badgeClass?: string;
-  class?: string;
-  preventExact?: boolean;
-  visible?: boolean;
-  disabled?: boolean;
-  replaceUrl?: boolean;
-  command?: ({ originalEvent, item }: CommandProps) => void;
+export interface SideBarMenuItem extends MenuItem {
+  to: string;
 }
 
 export interface AppMenuItemProps {
@@ -102,5 +85,4 @@ export interface AppMenuItemProps {
   parentKey?: string;
   index?: number;
   root?: boolean;
-  className?: string;
 }

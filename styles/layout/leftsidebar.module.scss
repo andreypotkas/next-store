@@ -1,0 +1,27 @@
+.layout_main {
+  &_item {
+    @include flex_dir_align_justify_gap($gap: 1rem);
+    padding: 0.5rem;
+    transition: 0.25s;
+    width: 100%;
+  }
+}
+
+.item_wrapper {
+  @include flex_dir_align_justify_gap($dir: column, $align: center);
+  @extend %underlined-animation;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.active {
+  @extend %underlined-animation;
+  background: var(--surface-hover);
+
+  &::after {
+    width: 100%;
+  }
+}

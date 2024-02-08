@@ -3,7 +3,7 @@
     content: "";
     display: block;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: var(--primary-color);
     transition: width 0.3s;
   }
@@ -21,14 +21,14 @@
   padding: 0.5rem 1.5rem;
 }
 
-%description_1 {
+%secondary_text_1 {
   font-size: 1.5rem;
   color: var(--text-color-secondary);
 }
-%description_2 {
+%secondary_text_2 {
   color: var(--text-color-secondary);
 }
-%description_3 {
+%secondary_text_3 {
   color: var(--text-color-secondary);
   font-size: 0.75rem;
 }
