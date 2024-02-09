@@ -1,10 +1,13 @@
 "use client";
-import styles from "@/styles/layout/leftsidebar.module.scss";
+import { LayoutContext } from "@/context/layoutcontext";
+import styles from "@/styles/layout/leftSideBar.module.scss";
+
 import { SideBarMenuItem } from "@/types/layout";
 import clsx from "clsx";
 import { BedDouble, Cable, Dumbbell, Footprints, HomeIcon, Layers3, MessageCircleHeart, PlaneTakeoff, Shirt, ShoppingBag } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { Sidebar } from "primereact/sidebar";
+import { useContext, useState } from "react";
 
 const model: SideBarMenuItem[] = [
   { label: "Все категории", icon: <Layers3 className="p-menuitem-icon" />, to: "/" },
@@ -68,7 +71,7 @@ const ItemTemplate = ({ item, index, activeIndex, setActive }: { item: SideBarMe
 
   return (
     <div onClick={handleClick} className={clsx(styles.item_wrapper, index === activeIndex && styles.active)}>
-      <Link className={styles.layout_main_item} href={item.to}>
+      <Link className={styles.left_side_bar_content_item} href={item.to}>
         <span>{item.icon}</span>
         <span>{item.label}</span>
       </Link>
@@ -77,14 +80,31 @@ const ItemTemplate = ({ item, index, activeIndex, setActive }: { item: SideBarMe
 };
 
 const LeftSidebar = () => {
+  const { layoutConfig, setLayoutConfig } = useContext(LayoutContext);
   const [active, setActive] = useState(0);
-
+  const handleClickBtn = () => {
+    setLayoutConfig({ ...layoutConfig, sideBarVisible: !layoutConfig.sideBarVisible });
+  };
   return (
-    <div className={styles.layout_main}>
-      {model.map((item, index) => {
-        return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;
-      })}
-    </div>
+    <>
+      {layoutConfig.isDesktop ? (
+        <div className={clsx(styles.left_side_bar, !layoutConfig.sideBarVisible && styles.hidden)}>
+          <div className={styles.left_side_bar_content}>
+            {model.map((item, index) => {
+              return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;
+            })}
+          </div>
+        </div>
+      ) : (
+        <Sidebar visible={layoutConfig.sideBarVisible} onHide={handleClickBtn} style={{ width: "320px" }}>
+          <div className={styles.left_side_bar_content}>
+            {model.map((item, index) => {
+              return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;
+            })}
+          </div>
+        </Sidebar>
+      )}
+    </>
   );
 };
 

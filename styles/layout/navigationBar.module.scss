@@ -1,5 +1,5 @@
 .navigation_bar {
-  display: flex;
+  @include flex_dir_align_justify_gap($gap: 0.25rem);
 }
 
 .navigation_bar_item {
@@ -24,23 +24,22 @@
   }
 }
 
-.profile_item_image_container {
-  height: 28.5px;
-}
-
-@media (max-width: 1280px) {
-  .navigationbar_content {
-    margin: 0;
-  }
+.mobile {
+  display: none;
 }
 
 @media (max-width: 776px) {
-  .navigationbar_content_right_nav {
+  .desktop {
     display: none;
   }
 
-  .navigationbar_content_right_nav_mobile {
+  .mobile {
     display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 
   .navigation_bar_item {
@@ -50,5 +49,6 @@
   .navigation_bar {
     background: var(--surface-card);
     border-top: 1px solid var(--surface-border);
+    width: 100%;
   }
 }

@@ -33,19 +33,14 @@ export type LayoutState = {
 
 export type LayoutConfig = {
   ripple: boolean;
-  menuMode: string;
-  colorScheme: string;
-  theme: string;
+  sideBarVisible: boolean;
+  isDesktop: boolean;
 };
 
 export interface LayoutContextProps {
   layoutConfig: LayoutConfig;
   setLayoutConfig: Dispatch<SetStateAction<LayoutConfig>>;
-  layoutState: LayoutState;
-  setLayoutState: Dispatch<SetStateAction<LayoutState>>;
-  onMenuToggle: () => void;
-  showProfileSidebar: () => void;
-  changeAppTheme: (theme: string, colorScheme: string) => void;
+  toggleLeftSideBar: () => void;
 }
 
 export interface MenuContextProps {

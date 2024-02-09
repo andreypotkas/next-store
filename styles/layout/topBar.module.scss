@@ -1,0 +1,39 @@
+.topbar {
+  @include flex_dir_align_justify_gap($justify: space-between, $align: center);
+
+  @extend %card;
+  position: fixed;
+  height: 5rem;
+  z-index: 997;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 0.5rem;
+
+  &_left {
+    @include flex_dir_align_justify_gap($gap: 1rem, $justify: space-between, $align: center);
+    width: 360px;
+
+    &_logo {
+      @include flex_dir_align_justify_gap($align: center);
+      @extend %title_1;
+    }
+
+    &_button {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid var(--surface-border);
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--surface-hover);
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
