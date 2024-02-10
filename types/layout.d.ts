@@ -1,46 +1,23 @@
 import { MenuItem } from "primereact/menuitem";
 import React, { Dispatch, ReactNode, SetStateAction } from "react";
 
-/* Breadcrumb Types */
-export interface AppBreadcrumbProps {
-  className?: string;
-}
-
-export interface Breadcrumb {
-  labels?: string[];
-  to?: string;
-}
-
-export interface BreadcrumbItem {
-  label: string;
-  to?: string;
-  items?: BreadcrumbItem[];
-}
-
 type ChildContainerProps = {
   children: ReactNode;
 };
 
-/* Context Types */
-export type LayoutState = {
-  staticMenuDesktopInactive: boolean;
-  overlayMenuActive: boolean;
-  profileSidebarVisible: boolean;
-  configSidebarVisible: boolean;
-  staticMenuMobileActive: boolean;
-  menuHoverActive: boolean;
-};
-
 export type LayoutConfig = {
-  ripple: boolean;
-  sideBarVisible: boolean;
+  leftSideBarVisible: boolean;
+  cartVisible: boolean;
   isDesktop: boolean;
+  searchVisible: boolean;
 };
 
 export interface LayoutContextProps {
   layoutConfig: LayoutConfig;
   setLayoutConfig: Dispatch<SetStateAction<LayoutConfig>>;
   toggleLeftSideBar: () => void;
+  toggleCart: () => void;
+  toggleSearch: () => void;
 }
 
 export interface MenuContextProps {
@@ -73,11 +50,4 @@ export interface MenuProps {
 
 export interface SideBarMenuItem extends MenuItem {
   to: string;
-}
-
-export interface AppMenuItemProps {
-  item?: AppMenuItem;
-  parentKey?: string;
-  index?: number;
-  root?: boolean;
 }

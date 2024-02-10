@@ -1,39 +1,12 @@
 "use client";
 
+import { LayoutContext } from "@/context/layoutcontext";
 import styles from "@/styles/layout/navigationBar.module.scss";
 import { NavigationBarItemType } from "@/types/items";
 import clsx from "clsx";
-import { Bell, Home, Newspaper, Users } from "lucide-react";
+import { Home, LucideHeart, Search, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useState } from "react";
-
-const navigationBarItems: NavigationBarItemType[] = [
-  {
-    label: "Главная",
-    icon: <Home width={24} height={24} />,
-    link: "/home",
-  },
-  {
-    label: "Избранное",
-    icon: <Home width={24} height={24} />,
-    link: "/home",
-  },
-  {
-    label: "Уведомления",
-    icon: <Users width={24} height={24} />,
-    link: "/?page=social",
-  },
-  {
-    label: "Профиль",
-    icon: <Newspaper width={24} height={24} />,
-    link: "/?page=link",
-  },
-  {
-    label: "Корзина",
-    icon: <Bell width={24} height={24} />,
-    link: "/?page=link",
-  },
-];
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 
 type Props = { item: NavigationBarItemType; isActive: boolean; index: number; handler: Dispatch<SetStateAction<number>> };
 
@@ -43,15 +16,52 @@ function NavigationBarItem({ item, isActive, index, handler }: Props) {
   };
 
   return (
-    <Link className={clsx(styles.navigation_bar_item, isActive && styles.navigation_bar_item)} href={item.link} onClick={handleClick}>
-      <span> {item.icon}</span>
-      <span>{item.label}</span>
-    </Link>
+    <>
+      {item.link ? (
+        <Link className={clsx(styles.navigation_bar_item, isActive && styles.navigation_bar_item)} href={item.link} onClick={handleClick}>
+          <span> {item.icon}</span>
+          <span>{item.label}</span>
+        </Link>
+      ) : (
+        <div className={clsx(styles.navigation_bar_item, isActive && styles.navigation_bar_item)} onClick={item.action}>
+          <span> {item.icon}</span>
+          <span>{item.label}</span>
+        </div>
+      )}
+    </>
   );
 }
 
 export default function NavigationBar() {
+  const navigationBarItems: NavigationBarItemType[] = [
+    {
+      label: "Поиск",
+      icon: <Search width={24} height={24} />,
+      action: () => toggleSearch(),
+    },
+    {
+      label: "Главная",
+      icon: <Home width={24} height={24} />,
+      link: "/home",
+    },
+    {
+      label: "Профиль",
+      icon: <User width={24} height={24} />,
+      link: "/?page=social",
+    },
+    {
+      label: "Избранное",
+      icon: <LucideHeart width={24} height={24} />,
+      link: "/?page=link",
+    },
+    {
+      label: "Корзина",
+      icon: <ShoppingCart width={24} height={24} />,
+      action: () => toggleCart(),
+    },
+  ];
   const [active, setActive] = useState(0);
+  const { toggleCart, toggleSearch } = useContext(LayoutContext);
 
   return (
     <>

@@ -1,6 +1,5 @@
 .topbar {
   @include flex_dir_align_justify_gap($justify: space-between, $align: center);
-
   @extend %card;
   position: fixed;
   height: 5rem;
@@ -35,5 +34,11 @@
         font-size: 1.5rem;
       }
     }
+  }
+}
+
+@media (max-width: 776px) {
+  .topbar_left {
+    width: 100%;
   }
 }

@@ -80,15 +80,13 @@ const ItemTemplate = ({ item, index, activeIndex, setActive }: { item: SideBarMe
 };
 
 const LeftSidebar = () => {
-  const { layoutConfig, setLayoutConfig } = useContext(LayoutContext);
+  const { layoutConfig, toggleLeftSideBar } = useContext(LayoutContext);
   const [active, setActive] = useState(0);
-  const handleClickBtn = () => {
-    setLayoutConfig({ ...layoutConfig, sideBarVisible: !layoutConfig.sideBarVisible });
-  };
+
   return (
     <>
       {layoutConfig.isDesktop ? (
-        <div className={clsx(styles.left_side_bar, !layoutConfig.sideBarVisible && styles.hidden)}>
+        <div className={clsx(styles.left_side_bar, !layoutConfig.leftSideBarVisible && styles.hidden)}>
           <div className={styles.left_side_bar_content}>
             {model.map((item, index) => {
               return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;
@@ -96,7 +94,7 @@ const LeftSidebar = () => {
           </div>
         </div>
       ) : (
-        <Sidebar visible={layoutConfig.sideBarVisible} onHide={handleClickBtn} style={{ width: "320px" }}>
+        <Sidebar header={<span className={"side-bar-header"}>Категории</span>} visible={layoutConfig.leftSideBarVisible} onHide={toggleLeftSideBar} style={{ width: "320px" }}>
           <div className={styles.left_side_bar_content}>
             {model.map((item, index) => {
               return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;

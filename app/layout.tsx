@@ -14,14 +14,14 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "RunConnect | Sport Community",
-  description: "Community of athletes! Train, compete, socialize and find friends who also love sports!",
+  title: "NextStore | Интернет магазин современных вещей.",
+  description: "NextStore - здесь ты найдешь все необходимое.",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    title: "RunConnect | Sport Community",
+    title: "NextStore | Интернет магазин современных вещей.",
+    description: "NextStore - здесь ты найдешь все необходимое.",
     url: "https://runconnect.ru/",
-    description: "Community of athletes! Train, compete, socialize and find friends who also love sports!",
     ttl: 604800,
   },
   icons: {

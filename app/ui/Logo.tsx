@@ -5,5 +5,5 @@ type Props = {
 };
 
 export default function Logo({ size }: Props) {
-  return <Image width={size} height={size} priority src={"/logo.svg"} alt={"main logo"} />;
+  return <Image width={size} height={size} priority src={"/logo.png"} alt={"main logo"} />;
 }
