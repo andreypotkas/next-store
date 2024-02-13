@@ -4,33 +4,12 @@ import styles from "@/styles/layout/leftSideBar.module.scss";
 
 import { SideBarMenuItem } from "@/types/layout";
 import clsx from "clsx";
-import {
-  BedDouble,
-  Bike,
-  Component,
-  Dice2,
-  FlaskRound,
-  Footprints,
-  Gem,
-  Glasses,
-  Heart,
-  Home,
-  Laptop,
-  Layers3,
-  PersonStanding,
-  Shirt,
-  ShoppingBag,
-  Siren,
-  Smartphone,
-  Watch,
-  Workflow,
-} from "lucide-react";
+import { BedDouble, Bike, Component, Dice2, FlaskRound, Footprints, Gem, Glasses, Heart, Home, Laptop, PersonStanding, Shirt, ShoppingBag, Siren, Smartphone, Watch, Workflow } from "lucide-react";
 import Link from "next/link";
 import { Sidebar } from "primereact/sidebar";
 import { useContext, useState } from "react";
 
 const categories = [
-  { label: "All", icon: <Layers3 className="p-menuitem-icon" />, category: "" },
   { label: "Smartphones", icon: <Smartphone className="p-menuitem-icon" />, category: "smartphones" },
   { label: "Laptops", icon: <Laptop className="p-menuitem-icon" />, category: "laptops" },
   { label: "Fragrances", icon: <FlaskRound className="p-menuitem-icon" />, category: "fragrances" },
@@ -53,10 +32,6 @@ const categories = [
   { label: "Lighting", icon: <Siren className="p-menuitem-icon" />, category: "lighting" },
 ];
 
-const model: SideBarMenuItem[] = categories.map((item) => {
-  return { ...item, to: "/" };
-});
-
 const ItemTemplate = ({ item, index, activeIndex, setActive }: { item: SideBarMenuItem; index: number; activeIndex: number; setActive: (num: number) => void }) => {
   const handleClick = () => {
     setActive(index);
@@ -64,7 +39,7 @@ const ItemTemplate = ({ item, index, activeIndex, setActive }: { item: SideBarMe
 
   return (
     <div onClick={handleClick} className={clsx(styles.item_wrapper, index === activeIndex && styles.active)}>
-      <Link className={styles.left_side_bar_content_item} href={item.to}>
+      <Link className={styles.left_side_bar_content_item} href={`/category/${item.category}`}>
         <span>{item.icon}</span>
         <span>{item.label}</span>
       </Link>
@@ -81,7 +56,7 @@ const LeftSidebar = () => {
       {layoutConfig.isDesktop ? (
         <div className={clsx(styles.left_side_bar, !layoutConfig.leftSideBarVisible && styles.hidden)}>
           <div className={styles.left_side_bar_content}>
-            {model.map((item, index) => {
+            {categories.map((item, index) => {
               return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;
             })}
           </div>
@@ -89,7 +64,7 @@ const LeftSidebar = () => {
       ) : (
         <Sidebar header={<span className={"side-bar-header"}>Категории</span>} visible={layoutConfig.leftSideBarVisible} onHide={toggleLeftSideBar} style={{ width: "320px" }}>
           <div className={styles.left_side_bar_content}>
-            {model.map((item, index) => {
+            {categories.map((item, index) => {
               return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;
             })}
           </div>

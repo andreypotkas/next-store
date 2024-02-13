@@ -49,5 +49,5 @@ export interface MenuProps {
 }
 
 export interface SideBarMenuItem extends MenuItem {
-  to: string;
+  category: string;
 }

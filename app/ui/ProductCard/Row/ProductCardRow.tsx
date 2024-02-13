@@ -18,8 +18,10 @@ export default function ProductCardRow({ product }: Props) {
 
         <div>
           <div className={styles.card_price}>{product.price}</div>
-          <Rating value={product.rating} readOnly cancel={false} />
-
+          <div className={styles.card_rating}>
+            <span>{product.rating}</span>
+            <Rating value={product.rating} readOnly cancel={false} />
+          </div>
           <div className={styles.card_title}>{product.title}</div>
           <div className={styles.card_brand}>{product.brand}</div>
         </div>

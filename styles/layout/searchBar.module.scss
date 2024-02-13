@@ -6,6 +6,15 @@
   }
 }
 
+.input_container {
+  @include flex_dir_align_justify_gap($gap: 1rem);
+  width: 100%;
+}
+
+.info {
+  @extend %secondary_text_3;
+}
+
 .items_container {
   width: 100%;
   @include flex_dir_align_justify_gap($gap: 0.25rem, $dir: column);
@@ -23,13 +32,13 @@
 
     &:hover {
       cursor: pointer;
-      background: var(--surface-hover);
+      background: var(--surface-ground);
     }
   }
 }
 
 .side_bar {
-  height: 60%;
+  height: 40%;
   max-width: 776px;
   margin: 0 auto;
   border-bottom-left-radius: 1rem;

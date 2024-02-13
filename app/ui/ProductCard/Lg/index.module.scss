@@ -18,6 +18,14 @@
       @extend %title_1;
     }
 
+    &_rating {
+      @include flex_dir_align_justify_gap($align: center, $gap: 0.5rem);
+      span {
+        padding-top: 0.2rem;
+        @extend %title_2;
+      }
+    }
+
     &_title {
       @extend %title_1;
       white-space: nowrap;

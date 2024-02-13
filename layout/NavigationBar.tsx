@@ -46,7 +46,7 @@ export default function NavigationBar() {
       label: "Избранное",
       icon: <LucideHeart width={24} height={24} />,
       link: true,
-      action: () => router.push("/"),
+      action: () => router.push("/favorites"),
     },
     {
       label: "Корзина",

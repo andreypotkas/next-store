@@ -20,9 +20,11 @@ export default function ProductCardLg({ product }: Props) {
         <div className={styles.card_info_container_brand}>{product.brand}</div>
         <div className={styles.card_info_container_price}>{product.price}</div>
 
-        <div className={styles.card_info_container_price}>
+        <div className={styles.card_info_container_rating}>
+          <span>{product.rating}</span>
           <Rating value={product.rating} readOnly cancel={false} />
         </div>
+
         <div className={styles.card_info_container_description}>{product.description.length > 60 ? product.description.slice(0, 60) + ".." : product.description}</div>
 
         <div className={styles.card_info_container_actions}>

@@ -1,3 +1,11 @@
 .page_container {
   @include flex_dir_align_justify_gap($dir: column, $gap: 2rem);
 }
+
+.title {
+  @extend %card;
+  @extend %title_2;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+}
