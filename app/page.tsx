@@ -1,3 +1,17 @@
-export default function Home() {
-  return <div></div>;
+import styles from "@/styles/home.module.scss";
+import CardContainer from "./ui/CardContainer/CardContainer";
+import Carousel from "./ui/Carousel/Carousel";
+
+async function getProducts() {
+  return (await fetch("https://dummyjson.com/products")).json();
+}
+
+export default async function Home() {
+  const data = await getProducts();
+  return (
+    <div className={styles.page_container}>
+      <Carousel />
+      <CardContainer products={data.products} />
+    </div>
+  );
 }

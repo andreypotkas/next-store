@@ -3,6 +3,6 @@ import React from "react";
 export type NavigationBarItemType = {
   label: string;
   icon: React.ReactNode;
-  link?: string;
-  action?: () => void;
+  link: boolean;
+  action: () => void;
 };

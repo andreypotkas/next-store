@@ -3,12 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "primefaces.org",
+        hostname: "cdn.dummyjson.com",
       },
     ],
   },
   sassOptions: {
-    additionalData: `@import "@/styles/placeholders.scss"; @import "@/styles/mixins.scss";`,
+    additionalData: `@import "@/styles/utils/placeholders.scss"; @import "@/styles/utils/mixins.scss";`,
   },
 };
 

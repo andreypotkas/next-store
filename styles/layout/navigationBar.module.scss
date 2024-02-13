@@ -13,14 +13,14 @@
     cursor: pointer;
     background: var(--surface-hover);
   }
-}
 
-.navigation_bar_active_item {
-  @extend %underlined-animation;
-  background: var(--surface-hover);
+  &_active {
+    @extend %underlined-animation;
+    background: var(--surface-hover);
 
-  &::after {
-    width: 100%;
+    &::after {
+      width: 100%;
+    }
   }
 }
 
@@ -43,7 +43,7 @@
   }
 
   .navigation_bar_item {
-    width: 20%;
+    width: 25%;
   }
 
   .navigation_bar {

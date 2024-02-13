@@ -1,0 +1,3 @@
+.page_container {
+  @include flex_dir_align_justify_gap($dir: column, $gap: 2rem);
+}

@@ -4,64 +4,57 @@ import { LayoutContext } from "@/context/layoutcontext";
 import styles from "@/styles/layout/navigationBar.module.scss";
 import { NavigationBarItemType } from "@/types/items";
 import clsx from "clsx";
-import { Home, LucideHeart, Search, ShoppingCart, User } from "lucide-react";
-import Link from "next/link";
+import { Home, LucideHeart, Search, ShoppingCart } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useContext, useState } from "react";
 
 type Props = { item: NavigationBarItemType; isActive: boolean; index: number; handler: Dispatch<SetStateAction<number>> };
 
 function NavigationBarItem({ item, isActive, index, handler }: Props) {
   const handleClick = () => {
-    handler(index);
+    if (item.link) handler(index);
+    item.action();
   };
 
   return (
-    <>
-      {item.link ? (
-        <Link className={clsx(styles.navigation_bar_item, isActive && styles.navigation_bar_item)} href={item.link} onClick={handleClick}>
-          <span> {item.icon}</span>
-          <span>{item.label}</span>
-        </Link>
-      ) : (
-        <div className={clsx(styles.navigation_bar_item, isActive && styles.navigation_bar_item)} onClick={item.action}>
-          <span> {item.icon}</span>
-          <span>{item.label}</span>
-        </div>
-      )}
-    </>
+    <div className={clsx(styles.navigation_bar_item, isActive && styles.navigation_bar_item_active)} onClick={handleClick}>
+      <span> {item.icon}</span>
+      <span>{item.label}</span>
+    </div>
   );
 }
 
 export default function NavigationBar() {
+  const [active, setActive] = useState(1);
+  const { toggleCart, toggleSearch } = useContext(LayoutContext);
+  const router = useRouter();
+
   const navigationBarItems: NavigationBarItemType[] = [
     {
       label: "Поиск",
       icon: <Search width={24} height={24} />,
+      link: false,
       action: () => toggleSearch(),
     },
     {
       label: "Главная",
       icon: <Home width={24} height={24} />,
-      link: "/home",
-    },
-    {
-      label: "Профиль",
-      icon: <User width={24} height={24} />,
-      link: "/?page=social",
+      link: true,
+      action: () => router.push("/"),
     },
     {
       label: "Избранное",
       icon: <LucideHeart width={24} height={24} />,
-      link: "/?page=link",
+      link: true,
+      action: () => router.push("/"),
     },
     {
       label: "Корзина",
       icon: <ShoppingCart width={24} height={24} />,
+      link: false,
       action: () => toggleCart(),
     },
   ];
-  const [active, setActive] = useState(0);
-  const { toggleCart, toggleSearch } = useContext(LayoutContext);
 
   return (
     <>

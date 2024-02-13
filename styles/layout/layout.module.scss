@@ -1,12 +1,11 @@
 .container {
   display: flex;
-
-  padding: 5.5rem 0.5rem 0.5rem;
+  padding: 5.5rem 0.25rem 0.5rem;
 }
 
 .content {
-  @extend %card;
   width: 100%;
   min-height: calc(100vh - 9rem);
   flex-grow: 1;
+  flex-shrink: 1;
 }

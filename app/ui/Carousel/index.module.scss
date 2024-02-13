@@ -1,0 +1,75 @@
+/* components/ImageSlider.module.scss */
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .prev,
+  .next {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    width: 4rem;
+    height: 4rem;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  .prev {
+    left: 2rem;
+  }
+
+  .next {
+    right: 2rem;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 1rem;
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #bbb;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .activeDot {
+      background-color: #333;
+    }
+  }
+}

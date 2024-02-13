@@ -4,65 +4,58 @@ import styles from "@/styles/layout/leftSideBar.module.scss";
 
 import { SideBarMenuItem } from "@/types/layout";
 import clsx from "clsx";
-import { BedDouble, Cable, Dumbbell, Footprints, HomeIcon, Layers3, MessageCircleHeart, PlaneTakeoff, Shirt, ShoppingBag } from "lucide-react";
+import {
+  BedDouble,
+  Bike,
+  Component,
+  Dice2,
+  FlaskRound,
+  Footprints,
+  Gem,
+  Glasses,
+  Heart,
+  Home,
+  Laptop,
+  Layers3,
+  PersonStanding,
+  Shirt,
+  ShoppingBag,
+  Siren,
+  Smartphone,
+  Watch,
+  Workflow,
+} from "lucide-react";
 import Link from "next/link";
 import { Sidebar } from "primereact/sidebar";
 import { useContext, useState } from "react";
 
-const model: SideBarMenuItem[] = [
-  { label: "Все категории", icon: <Layers3 className="p-menuitem-icon" />, to: "/" },
-  {
-    label: "Одежда",
-    icon: <Shirt className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Обувь",
-    icon: <Footprints className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Аксессуары",
-    icon: <ShoppingBag className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Электроника",
-    icon: <Cable className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Обувь",
-    icon: <Footprints className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Спорт и фитнес",
-    icon: <Dumbbell className="p-menuitem-icon" />,
-    to: "/",
-  },
-
-  {
-    label: "Красота и уход",
-    icon: <MessageCircleHeart className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Дом и сад",
-    icon: <HomeIcon className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Мебель",
-    icon: <BedDouble className="p-menuitem-icon" />,
-    to: "/",
-  },
-  {
-    label: "Туризм и путешествия",
-    icon: <PlaneTakeoff className="p-menuitem-icon" />,
-    to: "/",
-  },
+const categories = [
+  { label: "All", icon: <Layers3 className="p-menuitem-icon" />, category: "" },
+  { label: "Smartphones", icon: <Smartphone className="p-menuitem-icon" />, category: "smartphones" },
+  { label: "Laptops", icon: <Laptop className="p-menuitem-icon" />, category: "laptops" },
+  { label: "Fragrances", icon: <FlaskRound className="p-menuitem-icon" />, category: "fragrances" },
+  { label: "Skincare", icon: <Heart className="p-menuitem-icon" />, category: "skincare" },
+  { label: "Groceries", icon: <Component className="p-menuitem-icon" />, category: "groceries" },
+  { label: "Home decoration", icon: <Home className="p-menuitem-icon" />, category: "home-decoration" },
+  { label: "Furniture", icon: <BedDouble className="p-menuitem-icon" />, category: "furniture" },
+  { label: "Tops", icon: <Dice2 className="p-menuitem-icon" />, category: "tops" },
+  { label: "Womens dresses", icon: <Shirt className="p-menuitem-icon" />, category: "womens-dresses" },
+  { label: "Womens shoes", icon: <Footprints className="p-menuitem-icon" />, category: "womens-shoes" },
+  { label: "Mens shirts", icon: <PersonStanding className="p-menuitem-icon" />, category: "mens-shirts" },
+  { label: "Mens shoes", icon: <Footprints className="p-menuitem-icon" />, category: "mens-shoes" },
+  { label: "Mens watches", icon: <Watch className="p-menuitem-icon" />, category: "mens-watches" },
+  { label: "Womens watches", icon: <Watch className="p-menuitem-icon" />, category: "womens-watches" },
+  { label: "Womens bags", icon: <ShoppingBag className="p-menuitem-icon" />, category: "womens-bags" },
+  { label: "Womens jewellery", icon: <Gem className="p-menuitem-icon" />, category: "womens-jewellery" },
+  { label: "Sunglasses", icon: <Glasses className="p-menuitem-icon" />, category: "sunglasses" },
+  { label: "Automotive", icon: <Workflow className="p-menuitem-icon" />, category: "automotive" },
+  { label: "Motorcycle", icon: <Bike className="p-menuitem-icon" />, category: "motorcycle" },
+  { label: "Lighting", icon: <Siren className="p-menuitem-icon" />, category: "lighting" },
 ];
+
+const model: SideBarMenuItem[] = categories.map((item) => {
+  return { ...item, to: "/" };
+});
 
 const ItemTemplate = ({ item, index, activeIndex, setActive }: { item: SideBarMenuItem; index: number; activeIndex: number; setActive: (num: number) => void }) => {
   const handleClick = () => {
