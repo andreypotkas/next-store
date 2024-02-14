@@ -25,6 +25,13 @@
   width: 100%;
 }
 
+.empty {
+  @include flex_dir_align_justify_gap($justify: center);
+  @extend %card;
+  @extend %title_2;
+  width: 100%;
+}
+
 .nav {
   @include flex_dir_align_justify_gap($justify: space-between);
   width: 100%;

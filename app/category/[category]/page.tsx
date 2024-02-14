@@ -9,12 +9,12 @@ async function getProducts(params: Params) {
   return (await fetch(`https://dummyjson.com/products/category/${params.category}`)).json();
 }
 
-export default async function Home({ params }: { params: Params }) {
+export default async function Category({ params }: { params: Params }) {
   const data = await getProducts(params);
-  console.log(params.category);
 
   return (
     <div className={styles.page_container}>
+      <div className={styles.title}>Category | {params.category}</div>
       <CardContainer products={data.products} />
     </div>
   );

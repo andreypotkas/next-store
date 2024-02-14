@@ -1,0 +1,61 @@
+.container {
+  @include flex_dir_align_justify_gap($gap: 1rem, $justify: center);
+  flex-wrap: wrap;
+  @extend %card;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  position: relative;
+  padding: 5rem 1rem;
+}
+
+.gallery {
+  flex: 1 0 50%;
+}
+
+.info {
+  @include flex_dir_align_justify_gap($gap: 0.5rem, $dir: column);
+  max-width: 24rem;
+  padding: 1rem;
+
+  &_title {
+    @extend %title_1;
+  }
+
+  &_price {
+    @extend %title_1;
+    background: var(--primary-color);
+    padding: 0.25rem 1rem;
+    border-radius: 3rem;
+    display: inline-block;
+  }
+
+  &_rating {
+    @include flex_dir_align_justify_gap($align: center, $gap: 0.5rem);
+    span {
+      padding-top: 0.2rem;
+      @extend %title_2;
+    }
+  }
+
+  &_actions {
+    @include flex_dir_align_justify_gap($gap: 1rem, $align: center);
+    width: 100%;
+
+    button {
+      flex-grow: 1;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    @include flex_dir_align_justify_gap($dir: column);
+    height: 100%;
+  }
+
+  .info {
+    max-width: 100%;
+    width: 100%;
+  }
+}

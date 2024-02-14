@@ -25,7 +25,7 @@ export default function ProductCardLg({ product }: Props) {
           <Rating value={product.rating} readOnly cancel={false} />
         </div>
 
-        <div className={styles.card_info_container_description}>{product.description.length > 60 ? product.description.slice(0, 60) + ".." : product.description}</div>
+        <div className={styles.card_info_container_description}>{product.description.length > 40 ? product.description.slice(0, 40) + ".." : product.description}</div>
 
         <div className={styles.card_info_container_actions}>
           <Button label="В корзину" icon={"pi pi-shopping-cart"} size="small" />

@@ -85,11 +85,15 @@ export default function CardContainer({ products }: Props) {
             </span>
           </div>
         </div>
-        <div className={clsx(containerClassNames[format], layoutConfig.leftSideBarVisible && styles.left_side_bar_visible)}>
-          {sortProducts(products).map((item) => {
-            return <ProductCard format={format} key={Math.random()} product={item} />;
-          })}
-        </div>
+        {products.length > 0 ? (
+          <div className={clsx(containerClassNames[format], layoutConfig.leftSideBarVisible && styles.left_side_bar_visible)}>
+            {sortProducts(products).map((item) => {
+              return <ProductCard format={format} key={Math.random()} product={item} />;
+            })}
+          </div>
+        ) : (
+          <span className={styles.empty}>There are no products.</span>
+        )}
       </div>
     </>
   );
