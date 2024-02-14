@@ -8,14 +8,16 @@ import { ArrowDownToLine, ArrowUpToLine, Grip, LayoutGrid, LayoutList, SlidersHo
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useContext, useState } from "react";
+import Pagination from "../Pagination/Pagination";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./index.module.scss";
 
 type Props = {
   products: Product[];
+  isMain?: boolean;
 };
 
-export default function CardContainer({ products }: Props) {
+export default function CardContainer({ products, isMain: isSortVisible = true }: Props) {
   const { layoutConfig } = useContext(LayoutContext);
   const [format, setFormat] = useState<ProductCardFormat>("lg");
   const sortParams = useSearchParams();
@@ -42,12 +44,13 @@ export default function CardContainer({ products }: Props) {
     ["sm"]: styles.card_container_sm,
     ["lg"]: styles.card_container_lg,
     ["row"]: styles.card_container_row,
+    ["related"]: "",
   };
 
   return (
-    <>
-      <div className={styles.wrapper}>
-        <div className={styles.nav}>
+    <div className={styles.wrapper}>
+      <div className={styles.nav}>
+        {isSortVisible && (
           <div className={styles.nav_filters}>
             <SlidersHorizontal />
             {price === "ascending" ? (
@@ -73,28 +76,30 @@ export default function CardContainer({ products }: Props) {
               </Link>
             )}
           </div>
-          <div className={styles.nav_format}>
-            <span className={styles.nav_format_item} onClick={() => setFormat("sm")}>
-              <Grip />
-            </span>
-            <span className={styles.nav_format_item} onClick={() => setFormat("lg")}>
-              <LayoutGrid />
-            </span>
-            <span className={styles.nav_format_item} onClick={() => setFormat("row")}>
-              <LayoutList />
-            </span>
-          </div>
-        </div>
-        {products.length > 0 ? (
-          <div className={clsx(containerClassNames[format], layoutConfig.leftSideBarVisible && styles.left_side_bar_visible)}>
-            {sortProducts(products).map((item) => {
-              return <ProductCard format={format} key={Math.random()} product={item} />;
-            })}
-          </div>
-        ) : (
-          <span className={styles.empty}>There are no products.</span>
         )}
+
+        <div className={styles.nav_format}>
+          <span className={styles.nav_format_item} onClick={() => setFormat("sm")}>
+            <Grip />
+          </span>
+          <span className={styles.nav_format_item} onClick={() => setFormat("lg")}>
+            <LayoutGrid />
+          </span>
+          <span className={styles.nav_format_item} onClick={() => setFormat("row")}>
+            <LayoutList />
+          </span>
+        </div>
       </div>
-    </>
+      {products.length > 0 ? (
+        <div className={clsx(containerClassNames[format], layoutConfig.leftSideBarVisible && styles.left_side_bar_visible)}>
+          {sortProducts(products).map((item) => {
+            return <ProductCard format={format} key={Math.random()} product={item} />;
+          })}
+        </div>
+      ) : (
+        <span className={styles.empty}>There are no products.</span>
+      )}
+      {isSortVisible && <Pagination />}
+    </div>
   );
 }

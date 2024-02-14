@@ -17,7 +17,7 @@ export default function ProductCardRow({ product }: Props) {
         </div>
 
         <div>
-          <div className={styles.card_price}>{product.price}</div>
+          <div className={styles.card_price}>${product.price} USD</div>
           <div className={styles.card_rating}>
             <span>{product.rating}</span>
             <Rating value={product.rating} readOnly cancel={false} />
@@ -27,8 +27,8 @@ export default function ProductCardRow({ product }: Props) {
         </div>
       </div>
       <div className={styles.card_actions}>
-        <Button label="В корзину" icon={"pi pi-shopping-cart"} size="small" />
-        <Button outlined icon={"pi pi-heart"} size="small" />
+        <Button label="В корзину" icon={"pi pi-shopping-cart"} />
+        <Button outlined icon={"pi pi-heart"} />
       </div>
     </div>
   );

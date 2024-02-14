@@ -1,6 +1,8 @@
 import { Product, ProductCardFormat } from "@/types/product";
+import Link from "next/link";
 import { ReactNode } from "react";
 import ProductCardLg from "./Lg/ProductCardLg";
+import Related from "./Related/Related";
 import ProductCardRow from "./Row/ProductCardRow";
 import ProductCardSm from "./Sm/ProductCardSm";
 
@@ -14,6 +16,11 @@ export default function ProductCard({ product, format }: Props) {
     ["sm"]: <ProductCardSm product={product} />,
     ["lg"]: <ProductCardLg product={product} />,
     ["row"]: <ProductCardRow product={product} />,
+    ["related"]: <Related product={product} />,
   };
-  return card[format];
+  return (
+    <Link style={{ width: "100%" }} href={`/product/${product.id}`}>
+      {card[format]}
+    </Link>
+  );
 }

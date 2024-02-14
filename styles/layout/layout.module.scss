@@ -6,6 +6,12 @@
 .content {
   width: 100%;
   min-height: calc(100vh - 9rem);
-  flex-grow: 1;
   flex-shrink: 1;
+  overflow: hidden;
+}
+
+@media (max-width: 776px) {
+  .container {
+    padding: 5.5rem 0.25rem 5rem;
+  }
 }

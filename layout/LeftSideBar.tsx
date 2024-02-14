@@ -62,7 +62,7 @@ const LeftSidebar = () => {
           </div>
         </div>
       ) : (
-        <Sidebar header={<span className={"side-bar-header"}>Категории</span>} visible={layoutConfig.leftSideBarVisible} onHide={toggleLeftSideBar} style={{ width: "320px" }}>
+        <Sidebar header={<span className={"side-bar-header"}>Categories</span>} visible={layoutConfig.leftSideBarVisible} onHide={toggleLeftSideBar} style={{ width: "320px" }}>
           <div className={styles.left_side_bar_content}>
             {categories.map((item, index) => {
               return <ItemTemplate item={item} index={index} activeIndex={active} setActive={setActive} key={Math.random()} />;

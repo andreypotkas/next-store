@@ -3,7 +3,7 @@
   @extend %card-hover;
   @include flex_dir_align_justify_gap($dir: column, $gap: 0.25rem);
   width: 100%;
-  min-width: 12rem;
+  min-width: 16rem;
 
   &_image_container {
     position: relative;
@@ -33,10 +33,5 @@
 
   &_brand {
     @extend %secondary_text_3;
-  }
-
-  &_actions {
-    @include flex_dir_align_justify_gap($justify: space-between, $align: center);
-    width: 100%;
   }
 }

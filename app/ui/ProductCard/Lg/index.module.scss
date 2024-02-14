@@ -11,7 +11,7 @@
 
   &_info_container {
     @include flex_dir_align_justify_gap($dir: column, $gap: 0.25rem);
-    height: 100%;
+    height: 16rem;
     width: 100%;
 
     &_price {

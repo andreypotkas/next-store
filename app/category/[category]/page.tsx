@@ -1,4 +1,5 @@
 import CardContainer from "@/app/ui/CardContainer/CardContainer";
+import RelatedProducts from "@/app/ui/RelatedProducts/RelatedProducts";
 import styles from "@/styles/home.module.scss";
 
 type Params = {
@@ -16,6 +17,7 @@ export default async function Category({ params }: { params: Params }) {
     <div className={styles.page_container}>
       <div className={styles.title}>Category | {params.category}</div>
       <CardContainer products={data.products} />
+      <RelatedProducts />
     </div>
   );
 }

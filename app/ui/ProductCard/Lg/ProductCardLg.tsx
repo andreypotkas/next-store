@@ -1,5 +1,4 @@
 import { Product } from "@/types/product";
-import { Heart } from "lucide-react";
 import Image from "next/image";
 import { Button } from "primereact/button";
 import { Rating } from "primereact/rating";
@@ -18,7 +17,7 @@ export default function ProductCardLg({ product }: Props) {
       <div className={styles.card_info_container}>
         <div className={styles.card_info_container_title}>{product.title}</div>
         <div className={styles.card_info_container_brand}>{product.brand}</div>
-        <div className={styles.card_info_container_price}>{product.price}</div>
+        <div className={styles.card_info_container_price}>${product.price} USD</div>
 
         <div className={styles.card_info_container_rating}>
           <span>{product.rating}</span>
@@ -26,10 +25,9 @@ export default function ProductCardLg({ product }: Props) {
         </div>
 
         <div className={styles.card_info_container_description}>{product.description.length > 40 ? product.description.slice(0, 40) + ".." : product.description}</div>
-
         <div className={styles.card_info_container_actions}>
-          <Button label="В корзину" icon={"pi pi-shopping-cart"} size="small" />
-          <Heart color="rgb(175 235 0)" />
+          <Button label="В корзину" icon={"pi pi-shopping-cart"} />
+          <Button icon={"pi pi-heart"} outlined />
         </div>
       </div>
     </div>

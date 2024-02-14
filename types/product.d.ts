@@ -12,4 +12,4 @@ export type Product = {
   images: string[];
 };
 
-export type ProductCardFormat = "sm" | "lg" | "row";
+export type ProductCardFormat = "sm" | "lg" | "row" | "related";

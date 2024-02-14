@@ -1,23 +1,26 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  @include flex_dir_align_justify_gap($gap: 1rem, $dir: column);
+}
+
 .container {
   @include flex_dir_align_justify_gap($gap: 1rem, $justify: center);
   flex-wrap: wrap;
   @extend %card;
-  margin: 0 auto;
-  max-width: 1440px;
-  width: 100%;
   position: relative;
   padding: 5rem 1rem;
-}
-
-.gallery {
-  flex: 1 0 50%;
+  width: 100%;
 }
 
 .info {
   @include flex_dir_align_justify_gap($gap: 0.5rem, $dir: column);
   max-width: 24rem;
   padding: 1rem;
-
+  align-self: stretch;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 1rem;
   &_title {
     @extend %title_1;
   }
@@ -41,6 +44,7 @@
   &_actions {
     @include flex_dir_align_justify_gap($gap: 1rem, $align: center);
     width: 100%;
+    margin-top: auto;
 
     button {
       flex-grow: 1;
