@@ -1,0 +1,19 @@
+.container {
+  @include flex_dir_align_justify_gap($dir: column, $gap: 1rem);
+  overflow-y: scroll;
+}
+
+.wrapper {
+  @include flex_dir_align_justify_gap($dir: column, $justify: space-between);
+  height: 100%;
+}
+
+.btn {
+  @include flex_dir_align_justify_gap($dir: column, $gap: 0.5rem);
+  @extend %card;
+  width: 100%;
+
+  button {
+    width: 100%;
+  }
+}

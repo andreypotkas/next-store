@@ -8,15 +8,28 @@
   @extend %secondary_text_3;
   width: 5rem;
   padding: 0.25rem;
+  position: relative;
+
+  &_badge {
+    @extend %title_3;
+    position: absolute;
+    top: -0.1rem;
+    right: 1.2rem;
+    background: red;
+    border-radius: 50%;
+    height: 1.2rem;
+    width: 1.2rem;
+    color: white;
+    text-align: center;
+  }
 
   &:hover {
-    cursor: pointer;
-    background: var(--surface-hover);
+    @extend %card-hover;
   }
 
   &_active {
     @extend %underlined-animation;
-    background: var(--surface-hover);
+    @extend %card-hover;
 
     &::after {
       width: 100%;

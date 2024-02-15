@@ -1,8 +1,7 @@
 import Gallery from "@/app/ui/Gallery/Gallery";
+import ProductActions from "@/app/ui/ProductActions/ProductActions";
 import RelatedProducts from "@/app/ui/RelatedProducts/RelatedProducts";
 import styles from "@/styles/product.module.scss";
-import { Heart } from "lucide-react";
-import { Button } from "primereact/button";
 import { Divider } from "primereact/divider";
 import { Rating } from "primereact/rating";
 
@@ -15,13 +14,13 @@ async function getProduct(params: Params) {
 }
 
 export default async function Product({ params }: { params: Params }) {
-  const data = await getProduct(params);
-  const { title, description, price, rating, brand, category } = data;
+  const product = await getProduct(params);
+  const { title, description, price, rating, brand, category } = product;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <Gallery data={data} />
+        <Gallery data={product} />
         <div className={styles.info}>
           <div className={styles.info_title}>{title}</div>
           <div>
@@ -35,10 +34,7 @@ export default async function Product({ params }: { params: Params }) {
 
           <Divider />
           <div>{description}</div>
-          <div className={styles.info_actions}>
-            <Button label="Add to cart" icon={"pi pi-plus"} rounded />
-            <Heart color="rgb(175 235 0)" />
-          </div>
+          <ProductActions cartGrow product={product} />
         </div>
       </div>
       <RelatedProducts />

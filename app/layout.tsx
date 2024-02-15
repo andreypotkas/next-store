@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "primeicons/primeicons.css";
 import "primereact/resources/primereact.css";
-import "primereact/resources/themes/viva-light/theme.css";
+import "primereact/resources/themes/viva-dark/theme.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:3000";
@@ -36,6 +36,9 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link id="theme-css" href={`/themes/viva-dark/theme.css`} rel="stylesheet"></link>
+      </head>
       <body className={poppins.className}>
         <PrimeReactProviders>
           <Layout>{children}</Layout>

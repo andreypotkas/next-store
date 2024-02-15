@@ -1,15 +1,20 @@
+"use client";
+
+import { useCartState } from "@/state/cart.state";
 import { Product } from "@/types/product";
+import { XCircle } from "lucide-react";
 import Image from "next/image";
 import { Rating } from "primereact/rating";
-import CartBtn from "../../ProductActions/CartBtn";
-import FavoriteBtn from "../../ProductActions/FavoriteBtn";
 import styles from "./index.module.scss";
 
 type Props = {
   product: Product;
 };
 
-export default function ProductCardRow({ product }: Props) {
+export default function ProductCardCart({ product }: Props) {
+  const { removeFromCart } = useCartState();
+
+  const handleClickClose = () => removeFromCart(product);
   return (
     <div className={styles.card}>
       <div className={styles.left_side}>
@@ -18,18 +23,16 @@ export default function ProductCardRow({ product }: Props) {
         </div>
 
         <div>
-          <div className={styles.card_price}>${product.price} USD</div>
+          <div className={styles.card_price}>
+            <span>${product.price} USD</span>
+            <XCircle onClick={handleClickClose} />
+          </div>
+          <div className={styles.card_title}>{product.title}</div>
           <div className={styles.card_rating}>
             <span>{product.rating}</span>
             <Rating value={product.rating} readOnly cancel={false} />
           </div>
-          <div className={styles.card_title}>{product.title}</div>
-          <div className={styles.card_brand}>{product.brand}</div>
         </div>
-      </div>
-      <div className={styles.card_actions}>
-        <CartBtn className="" product={product} />
-        <FavoriteBtn className="" product={product} />
       </div>
     </div>
   );

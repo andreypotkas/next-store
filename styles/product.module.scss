@@ -40,16 +40,6 @@
       @extend %title_2;
     }
   }
-
-  &_actions {
-    @include flex_dir_align_justify_gap($gap: 1rem, $align: center);
-    width: 100%;
-    margin-top: auto;
-
-    button {
-      flex-grow: 1;
-    }
-  }
 }
 
 @media (max-width: 991px) {

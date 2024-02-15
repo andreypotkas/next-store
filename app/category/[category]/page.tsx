@@ -16,7 +16,7 @@ export default async function Category({ params }: { params: Params }) {
   return (
     <div className={styles.page_container}>
       <div className={styles.title}>Category | {params.category}</div>
-      <CardContainer products={data.products} />
+      <CardContainer isMain={false} products={data.products} />
       <RelatedProducts />
     </div>
   );

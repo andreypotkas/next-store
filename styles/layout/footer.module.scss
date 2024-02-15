@@ -1,0 +1,16 @@
+.wrapper {
+  @include flex_dir_align_justify_gap($align: center, $justify: space-between);
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 6rem;
+  border-top: 1px solid var(--surface-border);
+}
+.logo {
+  @include flex_dir_align_justify_gap($align: center, $gap: 1rem);
+}
+
+@media (max-width: 776px) {
+  .wrapper {
+    display: none;
+  }
+}

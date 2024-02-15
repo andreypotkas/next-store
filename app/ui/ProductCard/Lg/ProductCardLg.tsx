@@ -1,7 +1,7 @@
 import { Product } from "@/types/product";
 import Image from "next/image";
-import { Button } from "primereact/button";
 import { Rating } from "primereact/rating";
+import ProductActions from "../../ProductActions/ProductActions";
 import styles from "./index.module.scss";
 
 type Props = {
@@ -25,10 +25,7 @@ export default function ProductCardLg({ product }: Props) {
         </div>
 
         <div className={styles.card_info_container_description}>{product.description.length > 40 ? product.description.slice(0, 40) + ".." : product.description}</div>
-        <div className={styles.card_info_container_actions}>
-          <Button label="В корзину" icon={"pi pi-shopping-cart"} />
-          <Button icon={"pi pi-heart"} outlined />
-        </div>
+        <ProductActions cartGrow={false} product={product} />
       </div>
     </div>
   );

@@ -37,11 +37,5 @@
     &_brand {
       @extend %secondary_text_3;
     }
-
-    &_actions {
-      @include flex_dir_align_justify_gap($justify: space-between, $align: center);
-      width: 100%;
-      margin-top: auto;
-    }
   }
 }

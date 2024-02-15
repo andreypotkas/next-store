@@ -6,13 +6,15 @@
 
   &_image_container {
     position: relative;
-    width: 7rem;
-    height: 7rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 1rem;
   }
 
   &_price {
-    @extend %title_1;
+    @include flex_dir_align_justify_gap($justify: space-between, $align: center);
+    @extend %title_2;
+    width: 100%;
   }
 
   &_title {
@@ -20,7 +22,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    max-width: 12rem;
+    max-width: 8rem;
   }
 
   &_rating {
@@ -29,14 +31,6 @@
       padding-top: 0.2rem;
       @extend %title_2;
     }
-  }
-
-  &_brand {
-    @extend %secondary_text_3;
-  }
-
-  &_actions {
-    @include flex_dir_align_justify_gap($dir: column, $gap: 2.5rem, $align: flex-end, $justify: space-between);
   }
 }
 
