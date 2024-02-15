@@ -1,8 +1,7 @@
 import { Product } from "@/types/product";
 import Image from "next/image";
 import { Rating } from "primereact/rating";
-import CartBtn from "../../ProductActions/CartBtn";
-import FavoriteBtn from "../../ProductActions/FavoriteBtn";
+import ProductActions from "../../ProductActions/ProductActions";
 import styles from "./index.module.scss";
 
 type Props = {
@@ -24,10 +23,7 @@ export default function ProductCardSm({ product }: Props) {
       <div className={styles.card_title}>{product.title}</div>
       <div className={styles.card_brand}>{product.brand}</div>
 
-      <div className={styles.card_actions}>
-        <CartBtn product={product} />
-        <FavoriteBtn product={product} />
-      </div>
+      <ProductActions product={product} />
     </div>
   );
 }
