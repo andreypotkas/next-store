@@ -2,6 +2,8 @@ import Gallery from "@/app/ui/Gallery/Gallery";
 import ProductActions from "@/app/ui/ProductActions/ProductActions";
 import RelatedProducts from "@/app/ui/RelatedProducts/RelatedProducts";
 import styles from "@/styles/product.module.scss";
+import { Product } from "@/types/product";
+import { Metadata } from "next";
 import { Divider } from "primereact/divider";
 import { Rating } from "primereact/rating";
 
@@ -9,8 +11,24 @@ type Params = {
   id: string;
 };
 
-async function getProduct(params: Params) {
+async function getProduct(params: Params): Promise<Product> {
   return (await fetch(`https://dummyjson.com/products/${params.id}`)).json();
+}
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const product = await getProduct(params);
+
+  // optionally access and extend (rather than replace) parent metadata
+
+  return {
+    title: product.title + " | NextStore",
+    description: product.description,
+    openGraph: {
+      images: product.images,
+      title: product.title,
+      description: product.description,
+    },
+  };
 }
 
 export default async function Product({ params }: { params: Params }) {

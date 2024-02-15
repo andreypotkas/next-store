@@ -17,43 +17,10 @@
   z-index: 100;
 }
 
-// button
-.p-button {
-  background: rgb(175 235 0);
-  border: 1px solid rgb(175 235 0);
-  height: 2.8rem;
-}
-
-.p-button.p-button-outlined {
-  background: transparent;
-  color: rgb(175 235 0);
-}
-
-.p-button.p-button-icon-only {
-  width: 2.8rem;
-  height: 2.8rem;
-}
-
 // rating
-.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
-  color: rgb(175 235 0);
-}
+
 .p-rating {
   display: flex;
   align-items: center;
   height: 2rem;
-}
-
-// pagination
-
-.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background: rgb(175 235 0);
-}
-
-.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover,
-.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
-.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
-.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
-.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
-  background: rgb(175, 235, 0, 0.5);
 }

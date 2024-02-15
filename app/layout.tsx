@@ -24,9 +24,6 @@ export const metadata: Metadata = {
     url: "https://runconnect.ru/",
     ttl: 604800,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 interface RootLayoutProps {

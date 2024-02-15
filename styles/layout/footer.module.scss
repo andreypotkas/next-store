@@ -4,6 +4,7 @@
   margin: 0 auto;
   height: 6rem;
   border-top: 1px solid var(--surface-border);
+  padding: 0 1rem;
 }
 .logo {
   @include flex_dir_align_justify_gap($align: center, $gap: 1rem);

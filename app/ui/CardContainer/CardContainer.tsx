@@ -80,13 +80,13 @@ export default function CardContainer({ products, isMain: isSortVisible = true }
 
         <div className={styles.nav_format}>
           <span className={styles.nav_format_item} onClick={() => setFormat("sm")}>
-            <Grip />
+            <Grip className={clsx(format === "sm" && styles.active)} />
           </span>
           <span className={styles.nav_format_item} onClick={() => setFormat("lg")}>
-            <LayoutGrid />
+            <LayoutGrid className={clsx(format === "lg" && styles.active)} />
           </span>
           <span className={styles.nav_format_item} onClick={() => setFormat("row")}>
-            <LayoutList />
+            <LayoutList className={clsx(format === "row" && styles.active)} />
           </span>
         </div>
       </div>

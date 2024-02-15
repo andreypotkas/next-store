@@ -64,17 +64,11 @@
   }
 }
 
-// @Responsive
-
-@media (max-width: 1680px) {
-  .left_side_bar_visible.card_container_sm {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
-
-  .card_container_sm {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  }
+.active {
+  color: var(--primary-color);
 }
+
+// @Responsive
 
 @media (max-width: 1440px) {
   .left_side_bar_visible.card_container_lg {
