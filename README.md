@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Store
 
-## Getting Started
+Welcome to Next Store! This is a project implemented using Next.js with TypeScript, utilizing the PrimeReact UI library and SCSS modules for beautiful user interfaces and Zustand for state management. In this project, I provide functionality for managing favorite and cart products, storing them locally using localStorage. For product data, I use a dummy API.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js with TypeScript**: Utilize the power of Next.js for server-side rendering and TypeScript for type safety.
+- **PrimeReact UI Library**: Design beautiful and responsive user interfaces with PrimeReact components.
+- **Zustand State Management**: Manage state with ease using Zustand, a minimalist state management library.
+- **Favorite Products**: Allow users to mark their favorite products.
+- **Cart Management**: Implement a shopping cart functionality for users to add and remove products.
+- **LocalStorage Integration**: Store favorite and cart products locally using the browser's localStorage.
+- **Dummy API**: Use a dummy API for fetching and managing product data.
+- **Layout**: Fully responsive and adaptive layout.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the development server with `npm run dev`.
+4. Start exploring and contributing to the project!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
 
-## Learn More
+To start using the project, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Navigate to the homepage.
+2. Browse through available products.
+3. Add products to your favorites or cart.
+4. View and manage your favorite products.

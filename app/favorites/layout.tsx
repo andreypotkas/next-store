@@ -18,7 +18,7 @@ export default function Layout({ children }: RootLayoutProps) {
       <div className={styles.title}>
         <span>Favorites</span>
       </div>
-      <div>{children}</div>
+      {children}
     </div>
   );
 }
