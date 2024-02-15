@@ -1,7 +1,6 @@
 "use client";
 import { LayoutContext } from "@/context/layoutcontext";
 import styles from "@/styles/layout/leftSideBar.module.scss";
-
 import { SideBarMenuItem } from "@/types/layout";
 import clsx from "clsx";
 import { BedDouble, Bike, Component, Dice2, FlaskRound, Footprints, Gem, Glasses, Heart, Home, Laptop, PersonStanding, Shirt, ShoppingBag, Siren, Smartphone, Watch, Workflow } from "lucide-react";
